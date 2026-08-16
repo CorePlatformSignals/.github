@@ -1,61 +1,53 @@
-# Core Platform Signals
+# Core Signal
 
-**From events to explainable decisions.**
+**From operational data to explainable decisions.**
 
-Core Platform Signals is an enterprise-grade, multi-tenant platform for converting operational data into features, signals, scores, evaluations, decisions, and actions.
+Core Signal is an enterprise-grade, multi-tenant intelligence platform that turns operational data into evidence-backed signals, evaluations, decisions and governed actions.
 
 ```text
-Data → Event → Feature → Signal → Score → Evaluation → Decision → Action
+Data/Event → Context → Metric/Feature → Signal → Score → Evaluation → Decision → Action
 ```
 
-The platform is domain-neutral. Industry and product knowledge is delivered through installable **Domain Packs** and **Connectors**.
+The platform core is domain-neutral. Product and industry knowledge is delivered through versioned **Domain Packs**, while source-specific integration is delivered through **Connectors**.
 
-## Initial reference domains
+## Reference domains
 
-- **Connected Operations Intelligence** for IoT, fleet, smart assets, telemetry, and CoreLink Platform
-- **Engineering Intelligence** for software delivery, DevOps, and DevPulse
-- **Editorial Intelligence** for newsrooms, publishing workflows, and semantic content analysis
+- **Editorial Intelligence** — Newsroom production commitments and semantic analysis
+- **Engineering Intelligence** — DevPulse delivery and review-flow risks
+- **Commerce Intelligence** — Kasbify/Digikala profit, leakage, return and SLA risk
+- **Connected Operations** — CoreLink device health, telemetry and work-order signals
 
-These are the first reference implementations, not the boundaries of the platform.
+## First milestone
+
+The Foundation MVP is a batch-first deterministic pipeline. Its first vertical is **Newsroom Commitment Monitor**: ingest publication events, measure monthly commitments, forecast shortfalls, emit evidence-backed risk evaluations, and reconcile production quantities with OpenMeter.
 
 ## Architecture
 
-The platform is divided into three planes:
+- **Control Plane:** tenants, workspaces, subjects, identity, definitions, policies, packs, entitlements and audit
+- **Data Plane:** ingestion, validation, metrics, signals, scores, evaluations, decisions and action dispatch
+- **Intelligence Plane:** statistics, semantic retrieval, embeddings, ML/LLMs and model governance
 
-- **Control Plane**: organizations, tenants, workspaces, schemas, policies, models, packs, entitlements, and audit
-- **Data Plane**: ingestion, normalization, feature computation, signal detection, scoring, evaluation, and action dispatch
-- **Intelligence Plane**: statistical models, semantic retrieval, embeddings, machine learning, LLMs, and model governance
+Core Signal detects and explains. Governed agents may recommend or choose an action. Integration services such as Composio may execute approved actions. Source platforms retain transactional ownership.
 
-## Core principles
+## Principles
 
-- Domain-neutral platform core
-- Open standards and explicit contracts
-- Event-driven and replayable processing
-- Explainable results with evidence and lineage
-- Multi-tenancy and isolation by design
-- Deterministic rules before probabilistic AI
-- Model and policy versioning
-- Usage metering and commercial entitlement separation
-- Cloud, dedicated, and on-premise deployment paths
-
-## Standards and technologies
-
-CloudEvents, AsyncAPI, OpenAPI, MQTT 5, Kafka-compatible streaming, PostgreSQL, pgvector, ClickHouse, OpenMeter, OpenTelemetry, and Keycloak.
+- deterministic rules before probabilistic AI
+- evidence, lineage and validity windows for decision-grade outputs
+- multi-tenancy and isolation by design
+- open, versioned and replayable contracts
+- batch-first MVP with streaming added by measured need
+- usage metering separated from operational truth
+- no autonomous agents or arbitrary in-cluster plugins in Foundation MVP
 
 ## Repositories
 
 | Repository | Purpose | Visibility |
 |---|---|---|
-| `platform` | Product monorepo containing control plane, data plane, console, runtimes, connectors, and initial domain packs | Private |
-| `contracts` | Public event, API, schema, and Domain Pack contracts | Public |
-| `deployment` | Docker Compose, Helm, Terraform, operational profiles, and environment configuration | Private |
-| `examples` | Public integration examples and reference event producers/consumers | Public |
-| `.github` | Organization profile, contribution defaults, issue templates, and governance files | Public |
+| [Platform](https://github.com/CorePlatformSignals/Platform) | Runtime, console, connectors and Domain Packs | Private |
+| [Contracts](https://github.com/CorePlatformSignals/Contracts) | Event, schema, API and pack contracts | Private |
+| [Deployment](https://github.com/CorePlatformSignals/Deployment) | Deployment profiles and operations | Private |
+| [.github](https://github.com/CorePlatformSignals/.github) | Organization profile and governance | Public |
 
-## Product status
+## Status
 
-Core Platform Signals is currently in the **foundation and architecture phase**. The first development milestone is an end-to-end deterministic pipeline for the three initial reference domains.
-
-## Security
-
-Do not report security vulnerabilities through public issues. Follow the security policy published in the relevant repository.
+The project is in the **Foundation and architecture phase**. Initial implementation is tracked in the Platform and Contracts repositories.
